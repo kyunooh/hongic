@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.jellydiss.hongic.inventory.dao.InventoryMapper">
+
+	<select id="getInventoryList" parameterType="Inventory" resultType="Inventory">
+		SELECT
+		    ITEM_SEQ 		AS "itemSeq",
+		    ITEM_NAME 		AS "itemName",
+		    CUR_AMT 		AS "currentAmount",
+		    WARN_AMT 		AS "warningAmount",
+		    DAN_AMT 		AS "dangerAmount",
+		    IMG_PATH 		AS "imgPath"
+		FROM
+		    INVENTORY_TB
+		WHERE
+		    TAB_NUM = #{tabNumber}
+		  AND
+		    DEL_YN = 'N'
+	</select>
+	<insert id="insertItem" parameterType="Inventory">
+		INSERT INTO INVENTORY_TB (
+		     ITEM_NAME,
+		     TAB_NUM,
+		     CUR_AMT,
+		     WARN_AMT,
+		     DAN_AMT,
+		     IMG_PATH,
+		     DEL_YN
+		) VALUES (
+		     #{itemName},
+		     #{tabNumber},
+		     #{currentAmount},
+		     #{warningAmount},
+		     #{dangerAmount},
+		     #{imgPath},
+		     #{delYn}
+		)
+		
+		
+	</insert>
+	<update id="createInventoryTable" >
+		CREATE TABLE INVENTORY_TB (
+			ITEM_SEQ INTEGER PRIMARY KEY AUTOINCREMENT,
+			ITEM_NAME VARCHAR,
+			TAB_NUM INTEGER,
+			CUR_AMT INTEGER,
+			WARN_AMT INTEGER,
+			DAN_AMT INTEGER,
+			IMG_PATH VARCHAR,
+			DEL_YN VARCHAR
+		)
+	</update>
+	<update id="dropInventoryTable">
+		DROP TABLE INVENTORY_TB
+	</update>
+</mapper>
