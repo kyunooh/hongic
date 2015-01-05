@@ -3,6 +3,17 @@
 
 <mapper namespace="org.jellydiss.hongic.inventory.dao.InventoryMapper">
 
+	<parameterMap id="inventoryParameterMapForInsert" type="Inventory">
+		<parameter property="itemSeq"  jdbcType="INTEGER" javaType="int" />
+		<parameter property="itemName" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="currentAmount" jdbcType="INTEGER" javaType="int" />
+		<parameter property="warningAmount" jdbcType="INTEGER" javaType="int" />
+		<parameter property="dangerAmount" jdbcType="INTEGER" javaType="int" />
+	</parameterMap>
+
+
+
+
 	<select id="getInventoryList" parameterType="Inventory" resultType="Inventory">
 		SELECT
 		    ITEM_SEQ 		AS "itemSeq",
@@ -13,10 +24,10 @@
 		    IMG_PATH 		AS "imgPath"
 		FROM
 		    INVENTORY_TB
-		WHERE
+	<!-- 	WHERE
 		    TAB_NUM = #{tabNumber}
 		  AND
-		    DEL_YN = 'N'
+		    DEL_YN = 'N' -->
 	</select>
 	<insert id="insertItem" parameterType="Inventory">
 		INSERT INTO INVENTORY_TB (

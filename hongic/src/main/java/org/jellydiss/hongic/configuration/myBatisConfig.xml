@@ -5,6 +5,9 @@
 
     <!-- db 정보 파일을 로드한다. -->
     <properties resource="db.properties" />
+    <settings>
+    	<setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
 	<typeAliases>
 		<typeAlias alias="Inventory" type="org.jellydiss.hongic.inventory.Inventory" />
 	</typeAliases>

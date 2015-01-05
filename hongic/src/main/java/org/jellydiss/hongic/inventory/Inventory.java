@@ -1,10 +1,6 @@
 package org.jellydiss.hongic.inventory;
 
-import java.util.ArrayList;
-
 public class Inventory {
-	ArrayList<Inventory> inventoryList;
-	
 	int itemSeq;
 	
 	int tabNumber;
@@ -21,30 +17,28 @@ public class Inventory {
 	
 	String delYn;
 	
+	
+	
 	@Override
 	public String toString() {
-		return "Inventory [inventoryList=" + inventoryList + ", itemSeq="
-				+ itemSeq + ", tabNumber=" + tabNumber + ", itemName="
-				+ itemName + ", currentAmount=" + currentAmount
+		return "Inventory [itemSeq=" + itemSeq + ", tabNumber=" + tabNumber
+				+ ", itemName=" + itemName + ", currentAmount=" + currentAmount
 				+ ", warningAmount=" + warningAmount + ", dangerAmount="
 				+ dangerAmount + ", imgPath=" + imgPath + ", delYn=" + delYn
 				+ "]";
 	}
-	
-	
-	
+
+
 	public Inventory() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-	public Inventory(ArrayList<Inventory> inventoryList, int itemSeq,
-			int tabNumber, String itemName, int currentAmount,
-			int warningAmount, int dangerAmount, String imgPath, String delYn) {
+	
+	public Inventory(int itemSeq, int tabNumber, String itemName,
+			int currentAmount, int warningAmount, int dangerAmount,
+			String imgPath, String delYn) {
 		super();
-		this.inventoryList = inventoryList;
 		this.itemSeq = itemSeq;
 		this.tabNumber = tabNumber;
 		this.itemName = itemName;
@@ -56,16 +50,6 @@ public class Inventory {
 	}
 
 
-
-	public ArrayList<Inventory> getInventoryList() {
-		return inventoryList;
-	}
-
-	public void setInventoryList(ArrayList<Inventory> inventoryList) {
-		this.inventoryList = inventoryList;
-	}
-
-	
 	public int getItemSeq() {
 		return itemSeq;
 	}
